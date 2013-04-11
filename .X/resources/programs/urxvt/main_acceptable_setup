@@ -1,0 +1,43 @@
+!!!!!!! urxvt !!!!!!!!!!!!!!!!!!!!!
+Urxvt.termName: rxvt-unicode-256color
+URxvt.buffered: true
+URxvt.saveLines: 4096
+URxvt.urlLauncher: firefox
+
+URxvt.perl-ext-common:  default,matcher
+URxvt.matcher.button:   1
+URxvt.colorUL: #4682B4
+URxvt.keysym.C-Delete:  perl:matcher:last
+URxvt.keysym.M-Delete:  perl:matcher:list
+
+URxvt.scrollBar_right: false
+URxvt.scrollBar: false
+URxvt.urgentOnBell: True
+URxvt.cursorBlink: true
+
+URxvt.internalBorder: 0
+URxvt.externalBorder: 0
+
+!scroll fix
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    false
+
+URxvt.highlightSelection: true
+!URxvt.letterSpace: -1
+!URxvt.loginShell: true
+
+! Font
+URxvt.font: xft:Bitstream Vera Sans Mono for Powerline:size=8
+!URxvt.font: xft:Terminus for Powerline:style=Medium:size=12
+!URxvt.font: xft:Lucida Sans Typewriter Powerline:size=12
+!URxvt.font: xft:Monaco for Powerline:size=12
+! Color
+!
+URxvt.cursorColor: green
+URxvt.borderColor: black
+URxvt.scrollColor: black
+URxvt.background: black
+URxvt.foreground: white
+URxvt.underlineColor: yellow
+

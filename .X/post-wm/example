@@ -1,0 +1,14 @@
+#wicd-client --tray &
+#xfce4-notes &
+#conky -d -u 5 -p 10 &
+
+#alltray -H -- /usr/bin/firefox -P Default &
+#export DISPLAY=:0.7
+#alltray -H thunderbird &
+#alltray -H claws-mail &
+#export DISPLAY=:0.2
+#export DISPLAY=:0.0
+#alltray -H -- google-chrome --app=https://mail.google.com &
+#alltray -H -- google-chrome --app=https://google.com/calendar &
+#tmux new -d -n weechat -s irc weechat-curses
+#exec awesome

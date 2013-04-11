@@ -1,0 +1,8 @@
+.Xauthority
+.cache/
+.dbus/
+.esd_auth
+.macromedia/
+.mozilla/
+.thunderbird/
+.vim/tmp/

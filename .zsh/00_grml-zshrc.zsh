@@ -1,0 +1,1 @@
+DIRSTACKFILE="${HOME}/.zsh/zdirs"

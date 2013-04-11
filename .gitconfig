@@ -1,0 +1,6 @@
+[include]
+	path = .config/git/gitconfig
+[color]
+	ui = auto
+[push]
+	default = simple

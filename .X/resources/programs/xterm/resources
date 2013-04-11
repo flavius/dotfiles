@@ -1,0 +1,36 @@
+! global settings
+xterm*termName: xterm-256colors
+xterm*utf8: 3
+xterm*eightBitInput: false
+xterm*saveLines: 512
+xterm*toolBar: false
+xterm*loginShell: true
+!xterm*vt100*geometry: 140x40
+xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48
+!xterm*disallowedWindowOps: 20,21,SetXprop
+
+! scrolling
+xterm*fastScroll: True
+xterm*scrollKey: true
+xterm*scrollTtyOutput: false
+xterm*scrollBar: false
+xterm*rightScrollBar: false
+xterm*jumpScroll: true
+xterm*multiScroll: true
+
+! aspect, font
+xterm*faceName: xft:Bitstream Vera Sans Mono for Powerline
+XTerm*fontMenu*fontdefault*Label: Default
+xterm*faceSize: 8
+xterm*font: fixed
+xterm*boldFont: fixed
+xterm*geometry: 80x25
+xterm*dynamicColors: true
+xterm*boldMode: true
+xterm*cursorBlink: true
+xterm*reverseVideo: false
+
+
+! bold+color gives another color, e.g. bold + gray = white
+xterm*colorBDMode: true
+xterm*colorBD: rgb:fc/fc/fc
