@@ -1,0 +1,13 @@
+/set weechat.bar.title.color_bg 60
+/set weechat.bar.status.color_bg 60
+/set weechat.color.chat_delimiters 29
+/set weechat.color.chat_host 24
+/set weechat.color.chat_prefix_suffix 24
+/set weechat.color.nicklist_away 244
+/set weechat.color.separator 60
+/set irc.color.reason_quit  244
+/set irc.color.topic_new  36
+/set irc.color.topic_old 244
+/set weechat.color.chat_nick_colors "cyan,magenta,green,brown,lightblue,default,lightcyan,lightmagenta,lightgreen,blue,31,35,38,40,49,63,70,80,92,99,112,126,130,138,142,148,160,162,167,169,174,176,178,184,186,210,212,215,247"
+/set irc.look.color_nicks_in_nicklist on
+/set weechat.look.buffer_time_format "${253}%H${245}%M${240}%S"

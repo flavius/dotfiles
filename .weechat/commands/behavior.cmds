@@ -1,0 +1,2 @@
+/filter add irc_smart * irc_smart_filter *
+/set weechat.look.mouse on

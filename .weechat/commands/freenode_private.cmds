@@ -1,0 +1,8 @@
+/set irc.server.freenode.sasl_username __nickservusername__
+/set irc.server.freenode.sasl_password __password__
+/set irc.server.freenode.autojoin "#yet-another-project,__additional_channels__"
+
+/set irc.server.freenode.nicks "__nickname__"
+/set irc.server.freenode.username "__username__"
+/set irc.server.freenode.realname "__real name__"
+
