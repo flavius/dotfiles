@@ -1,6 +1,7 @@
-/set weechat.bar.title.color_bg 60
-/set weechat.bar.status.color_bg 60
 /set weechat.color.chat_delimiters 29
+/set weechat.bar.title.color_bg blue
+/set weechat.bar.status.color_bg blue
+/set weechat.bar.status.color_delim black
 /set weechat.color.chat_host 24
 /set weechat.color.chat_prefix_suffix 24
 /set weechat.color.nicklist_away 244
