@@ -1,0 +1,3 @@
+# pacman -S python2-notify
+/script install lnotify.py
+/script install beep.pl
