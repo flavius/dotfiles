@@ -1,2 +1,3 @@
+" It kind of messes with the order you want in autojoin, but maybe you like it
 /script install chanpriority.py
 /chanpriority #yet-another-project,#vim,#git,#archlinux
