@@ -86,7 +86,7 @@
         filetype off
         set runtimepath+=$HOME/.vim/bundle/vundle
         call vundle#rc()
-        Bundle 'gmarik/vundle'
+        Bundle 'vim-chosen-plugins/vundle'
         if filereadable($HOME . '/.vim/bundles.vim')
             source expand($HOME . '/.vim/bundles.vim')
         endif
@@ -94,7 +94,7 @@
         call SourceVimDirectory('vimrc/bundles-post')
     endif
 " }}}
-" vimrc/Editing {{{
+" Editing {{{
     call SourceVimDirectory('vimrc/editing-pre')
     set tabstop=8
     set shiftwidth=4
@@ -184,7 +184,7 @@
     " }
     call SourceVimDirectory('vimrc/abbreviations-post')
 " }}}
-" vimrc/Force yourself to learn proper vim {{{
+" Force yourself to learn proper vim {{{
     set mouse=""
     " PageDown and PageUp {
         " there are other vim ways of moving around learn how to use those

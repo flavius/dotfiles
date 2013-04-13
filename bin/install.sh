@@ -6,5 +6,9 @@ git clone https://github.com/flavius/dotfiles.git $HOME
 echo "Please provide your password (not root)"
 chsh -s /bin/zsh
 ln -s $HOME/.X/resources/programs/urxvt/main_acceptable_setup .X/resources/urxvt
+mkdir -p $HOME/.vim/bundle
+pushd $HOME/.vim/bundle
+git clone https://github.com/vim-chosen-plugins/vundle.git
+popd
 popd
 echo "Please log out and log back in again"
