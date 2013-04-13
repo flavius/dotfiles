@@ -12,7 +12,7 @@ for modmap in $HOME/.X/modmap/*; do
     fi
 done
 
-for res in $HOME/.X/resources/*; do
+for res in $HOME/.X/resources/autoload/*; do
     if [ -f "$res" ]; then
         xrdb -merge "${res}"
         echo "MERGE: $res"
