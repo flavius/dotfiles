@@ -22,7 +22,7 @@ any important data (for instance, if you've just installed linux), like so:
 
 Or you can create a new user, as root:
 
-    USER=foo && PASS=bar && useradd -p $(perl -e"print crypt('$PASS', '$USER')") -c "Hello Hacklets" $USER && mkdir /home/$USER && chown -R $USER:users /home/$USER
+    USER=foo && PASS=bar && useradd -p $(perl -e"print crypt('$PASS', '$USER')") -c "Real $USER" $USER && mkdir /home/$USER && chown -R $USER:users /home/$USER
 
 Do not forget to set the variables `USER` and `PASS` in the above command.
 
