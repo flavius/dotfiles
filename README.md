@@ -33,6 +33,11 @@ directories `.` and `..`, you can type in:
 
 A few questions may be asked. Just follow the instructions in the output.
 
+To get ssh authentication at login, you'll use keychain. Just move your
+`id_rsa` and `id_rsa.pub` to `.ssh/` and relogin. You will be prompted only
+once for your passphrase, and you'll be authenticated to all your servers and
+git repositories (you do use PKI for authentication, right?).
+
 Then log out and log back in. A tmux session will start if you log in from a
 linux terminal (`tty{1,2,3,4,5,6}`). If you log in from `X`, awesome WM will
 start, in which case you have to press the Windows key (called `Mod4`) and
@@ -49,9 +54,4 @@ To initialize your git credentials, do:
     vim 10_user.conf
 
 and edit the file accordingly.
-
-To get ssh authentication at login, you'll use keychain. Just move your
-`id_rsa` and `id_rsa.pub` to `.ssh/` and relogin. You will be prompted only
-once for your passphrase, and you'll be authenticated to all your servers and
-git repositories (you do use PKI for authentication, right?).
 
