@@ -6,3 +6,4 @@
 .mozilla/
 .thunderbird/
 .vim/tmp/
+.netrc
