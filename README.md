@@ -14,9 +14,19 @@ account and clean everything:
 
     rm -rf * .*
 
-The quick way is to then issue:
+And set your shell to zsh:
 
-    zsh <(curl https://raw.github.com/flavius/dotfiles/rewrite/bin/install.sh -L -o -)
+    chsh -s /bin/zsh `whoami`
 
-* create a new user
-* clone this repository into
+There are currently no installation instructions available. Basically, you
+will also need to run
+
+    vundle.sh -i
+
+to install the bundles (if any), create some symlinks in `.X/resources` to
+the terminal emulator used (perhaps `.X/resources/programs/urxvt/main_acceptable_setup`),
+and throw in your credentials in `.config/git/10_user.conf` - there is also a
+`.config/git/10_user.conf.example`.
+
+Some other steps may be missing, but these should be the main steps.
+
