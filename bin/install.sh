@@ -7,5 +7,4 @@ echo "Please provide your password (not root)"
 chsh -s /bin/zsh
 ln -s $HOME/.X/resources/programs/urxvt/main_acceptable_setup .X/resources/urxvt
 popd
-echo "Logging back in to reinitialize the environment"
-su - `whoami`
+echo "Please log out and log back in again"
