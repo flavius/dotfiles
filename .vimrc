@@ -77,7 +77,7 @@
     " }
     " For a more responsive TrapMovementKeys (see below) - learn proper vim
     " Also for Bundle vim-showmarks
-    set updatetime=1000
+    set updatetime=500
     call SourceVimDirectory('vimrc/environment-post')
 " }}}
 " Bundles {{{
@@ -187,38 +187,46 @@
 " vimrc/Force yourself to learn proper vim {{{
     set mouse=""
     " PageDown and PageUp {
-        " there are other vim ways of moving around
-        " learn how to use those instead, like:
-        " marks
-        nnoremap <PageUp> <NOP>
-        nnoremap <PageDown> <NOP>
-        inoremap <PageUp> <NOP>
-        inoremap <PageDown> <NOP>
-        vnoremap <PageUp> <NOP>
-        vnoremap <PageDown> <NOP>
+        " there are other vim ways of moving around learn how to use those
+        " instead, like:
+        " marks, C-u, C-d
+        nnoremap <PageUp>       <NOP>
+        nnoremap <PageDown>     <NOP>
+        inoremap <PageUp>       <NOP>
+        inoremap <PageDown>     <NOP>
+        vnoremap <PageUp>       <NOP>
+        vnoremap <PageDown>     <NOP>
     " }
     " Mouse movement {
-        noremap <MiddleMouse> <NOP>
-        noremap <MouseUp> <NOP>
-        noremap <MouseDown> <NOP>
+        " reaching out to the mouse also means more finger movement than
+        " necessary
+        noremap <MiddleMouse>   <NOP>
+        noremap <MouseUp>       <NOP>
+        noremap <MouseDown>     <NOP>
     " }
     " Arrow keys {
-        nnoremap <UP> <NOP>
-        nnoremap <DOWN> <NOP>
-        nnoremap <LEFT> <NOP>
-        nnoremap <RIGHT> <NOP>
-        inoremap <UP> <NOP>
-        inoremap <DOWN> <NOP>
-        inoremap <LEFT> <NOP>
-        inoremap <RIGHT> <NOP>
-        vnoremap <UP> <NOP>
-        vnoremap <DOWN> <NOP>
-        vnoremap <LEFT> <NOP>
-        vnoremap <RIGHT> <NOP>
+        " needless to say, but: moving your fingers away from your home row
+        " (and you ARE touch typing, right?) also leads to more finger
+        " movement than it ought to be
+        nnoremap <UP>           <NOP>
+        nnoremap <DOWN>         <NOP>
+        nnoremap <LEFT>         <NOP>
+        nnoremap <RIGHT>        <NOP>
+        inoremap <UP>           <NOP>
+        inoremap <DOWN>         <NOP>
+        inoremap <LEFT>         <NOP>
+        inoremap <RIGHT>        <NOP>
+        vnoremap <UP>           <NOP>
+        vnoremap <DOWN>         <NOP>
+        vnoremap <LEFT>         <NOP>
+        vnoremap <RIGHT>        <NOP>
     " }
     " No repetitive HJKL {
-        " Author: Barry Arthur <bairui @ #vim / freenode>
+        " repeatedly pressing keys like j instead of using a number like 42j
+        " also leads to more finger movement than necessary
         let g:cursor_moving = 0
+        let g:in_recording = 0
+        let g:trap_keys = "hjklwWeE"
 
         function! TrapMovementKeys(key)
             augroup CursorMoving
@@ -232,15 +240,47 @@
             endif
         endfunction
 
-        " nnoremap <expr> h TrapMovementKeys('h')
-        " nnoremap <expr> j TrapMovementKeys('j')
-        " nnoremap <expr> k TrapMovementKeys('k')
-        " nnoremap <expr> l TrapMovementKeys('l')
+        function! SuspendDuringRecording()
+            if g:in_recording == 0
+                let l:code = getchar()
+                "let l:mode = getcharmod()
+                let g:in_recording = 1
+                let l:char = nr2char(l:code)
+                call UninstallTraps(g:trap_keys)
+                return 'q'.l:char
+            else
+                let g:in_recording = 0
+                call InstallTraps(g:trap_keys)
+                return 'q'
+            endif
+        endfunction
+
+        function! SuspendDuringPlayback()
+            call UninstallTraps(g:trap_keys)
+            let l:code = getchar()
+            let l:char = nr2char(l:code)
+            return "@".l:char.":call InstallTraps(g:trap_keys)\<CR>"
+        endfunction
+
+        function! InstallTraps(keys)
+            for l:key in split(a:keys, '\zs')
+                execute printf('nnoremap <expr> %s TrapMovementKeys("%s")', l:key, l:key)
+            endfor
+        endfunction
+
+        function! UninstallTraps(keys)
+            for l:key in split(a:keys, '\zs')
+                execute printf('nunmap %s', l:key)
+            endfor
+       endfunction
+
+        call InstallTraps(g:trap_keys)
+        nnoremap <expr> q SuspendDuringRecording()
+        nnoremap <silent> <expr> @ SuspendDuringPlayback()
 
         augroup CursorMovingOff
             autocmd!
             autocmd CursorHold * let g:cursor_moving = 0
-            autocmd CursorHoldI * let g:cursor_moving = 0
         augroup END
     " }
 " }}}
