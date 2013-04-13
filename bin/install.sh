@@ -3,8 +3,9 @@
 echo "installing"
 pushd $HOME
 git clone https://github.com/flavius/dotfiles.git $HOME
-echo "Please provide root password"
+echo "Please provide your password (not root)"
 chsh -s /bin/zsh
-ln -s .X/resources/programs/urxvt/main_acceptable_setup .X/resources/urxvt
+ln -s $HOME/.X/resources/programs/urxvt/main_acceptable_setup .X/resources/urxvt
 popd
-echo "Now log out and log back in please"
+echo "Logging back in to reinitialize the environment"
+su - `whoami`
