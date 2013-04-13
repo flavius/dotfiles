@@ -49,3 +49,9 @@ To initialize your git credentials, do:
     vim 10_user.conf
 
 and edit the file accordingly.
+
+To get ssh authentication at login, you'll use keychain. Just move your
+`id_rsa` and `id_rsa.pub` to `.ssh/` and relogin. You will be prompted only
+once for your passphrase, and you'll be authenticated to all your servers and
+git repositories (you do use PKI for authentication, right?).
+
