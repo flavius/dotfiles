@@ -23,6 +23,8 @@ holdconnectionopen = yes
 #doesn't seem to work, thus it's called again from bin/newmailcount
 postsynchook = notmuch new
 
+folderfilter = lambda foldername: foldername not in '[Gmail]/All Mail'
+
 endsnippet
 
 snippet imap-account "Define a generic IMAP account" !b

@@ -9,7 +9,7 @@
 [general]
 metadata = ~/.cache/offlineimap
 accounts = 
-maxsyncaccounts = 4
+maxsyncaccounts = 2
 socktimeout = 60
 ui = TTY.TTYUI
 fsync = true
