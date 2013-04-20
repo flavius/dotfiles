@@ -52,3 +52,25 @@ holdconnectionopen = yes
 postsynchook = notmuch new
 
 endsnippet
+
+snippet general "general section" !b
+[general]
+metadata = ~/.cache/offlineimap
+accounts = 
+maxsyncaccounts = 2
+socktimeout = 60
+ui = TTY.TTYUI
+fsync = true
+
+endsnippet
+
+snippet mailboxes "mailboxes automatic generation" !b
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes.muttrc
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+endsnippet
