@@ -102,27 +102,92 @@ passwords.
 
 ## IMAP - client
 
-Now open `.offlineimaprc` with vim. Reading the top comments, you should figure
-out what snippets are available. Press `G` to go to the bottom of the file, and
-use the snippets you need. `<C-j>` and `<C-k>` are available as always, thanks
-to the UltiSnips vim plugin.
+Now create `.offlineimaprc` with vim. Use one after one the snippets named
+`general`, `mailboxes` and according to your needs `gmail-account` to define
+a gmail account, or `imap-account` for a more generalistic imap account. You
+can combine as many as you please. Do not forget about `<C-j>` and `<C-k>` - so
+you won't miss any required fields.
 
-Do not forget to re-read the top comments, which instruct you how to activate
-the accounts you've created. The snippets were used just to create them, but
-they need to be wired the way it's described in the comments.
+Please read each snippet, line by line. Their goal is to ease installation, not
+to hide knowledge from you.
 
-In general, read the *entire* file you're creating, even if you're using
-scripts or shortcuts like snippets. I cannot emphasize this enough: these are
-*YOUR* configs, *YOU* are responsible for them.
+For instance, it is expected that you figure out yourself that after creating
+the accounts, you must also list them in a comma-sepparated list in the
+`general` section.
+
+The point is: **you must know your dotfiles**.
 
 Now let's see if you've set up offlineimap correctly. Run the command
-`offlineimap`. This may take a while, depending on the amount of e-mail you
-have. 30k messages may take around a half an hour (approximation depending on
-many factors, so you know what to expect).
+`offlineimap`. This will take a while, so head on to the next section.
+
+## Mutt - email reader
+
+`cd .mutt` and use these snippets: `sec-general`, `sec-editing`, `sec-viewing`,
+`sec-macros-hooks`, `sec-crypto`, `sec-accounts` in a new file called `muttrc`.
+Do not forget to:
+
+* read the configuration you're creating, so if something goes wrong, you know
+  where you need to go to fix it
+* use `<C-j>` and `<C-k>`
+
+By now, you must have figured out yourself, from that last snippet
+`sec-accounts`, that you have to create a file `accounts.muttrc`.
+
+Open this file and you'll be able to use the snippet `default-account-gmail`.
+You can tweak this as you like. If you have improvements anyone can benefit
+from, please submit a patch for this snippet.
+
+You can also add multiple accounts. Read the text carefully: there is also
+a signature file you have to edit. It's all easy to figure out, it's
+intuititive, just read what you see.
+
+A new acronym is borning: **RWTFUS** :-)
+
+Now run mutt from the console. You should be able to see your spoolfile now.
+Pressing `O` will run offlineimap to fetch new e-mails and synchronize your
+local maildirs (your spoolfile being one of them) with the IMAP server.
 
 ## SMTP - sender
 
-## Mutt - email client
+You also need to send e-mails, because simply copying them to the "Sent"
+maildir via offlineimap will not actually send any e-mail. OfflineIMAP is
+obviously working over IMAP, but sending e-mail is done over another protocol
+called SMTP. For this, we'll use msmtp.
+
+So `cd` and `vim .msmtprc`. Use the snippet `gmail` (the only one available as
+of now) and type in your gmail username.
+
+You must also change the permissions for this one:
+
+    chmod 600 .msmtprc
+
+Congrats, you're all set. Except...
+
+## It's a lie
+
+If your e-mail is not signed, then it's a lie :-) You'll want to generate a PKI
+keypair by running:
+
+    gpg --gen-key
+
+Choose a very long and good passphrase, with mixed letter cases, symbols and
+digits. Just make sure you won't forget it. My recommendation is to also use
+a big key size - most modern computers can cope these days with 4096 bits
+easily.
 
 ## Notmuch - email indexer
+
+You'll also want to index your e-mail, in order to be able to search through
+all the e-mails with speed. Remember, every directory in your `~/Mail/*/`
+directory is a stand-alone maildir, so it's not easy to do that.
+
+And this includes counting the number of new e-mails (after invoking
+offlineimap).
+
+For this, we'll use notmuch. Install it if you have not already. Then use the
+`def` snippet.
+
+You should soon see a yellow hand and a number counting the numbers of new
+threads in your maildirs. Send an e-mail (with mutt and vim editing and msmtp)
+to yourself to test it.
 
