@@ -69,6 +69,15 @@ running if you already know what you're doing.
 Press `<C-j>` and `<C-k>` respectively, while in insert mode, to navigate
 across placeholders in the snippet.
 
+After saving it, `git status` will show it as a modified file. But actually it
+is ignored, as shown by:
+
+    git ls-files -i --exclude-standard
+
+For this reason, let's ignore it for good:
+
+    git update-index --assume-unchanged .config/git/10_user.conf
+
 # E-Mail
 
 ## Credentials
