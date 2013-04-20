@@ -1,3 +1,2 @@
-#!/bin/bash
-#exec /usr/bin/firefox -ProfileManager $*
-/usr/bin/firefox -no-remote -ProfileManager $*
+#!/bin/zsh
+exec /usr/bin/firefox $FIREFOX_PARAMS $*

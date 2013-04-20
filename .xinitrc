@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-for f in $HOME/.X/initrc/*; do
+for f in $HOME/.X/initrc/autoload/*; do
     if [ -f "$f" ]; then
         source "${f}"
     fi
