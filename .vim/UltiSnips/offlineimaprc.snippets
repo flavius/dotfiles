@@ -1,0 +1,52 @@
+snippet gmail-account "Define a gmail account" !b
+###############################################################################
+[Account ${1:gmail username: the part before @}]
+localrepository = local-$1
+remoterepository = remote-$1
+status_backend = sqlite
+autorefresh = 5
+quick = 10
+
+[Repository local-$1]
+type = Maildir
+localfolders = ~/Mail/$1
+
+[Repository remote-$1]
+type = Gmail
+remotehost = imap.gmail.com
+remoteuser = $1@gmail.com
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+realdelete = no
+keepalive = 60
+holdconnectionopen = yes
+#doesn't seem to work, thus it's called again from bin/newmailcount
+postsynchook = notmuch new
+
+endsnippet
+
+snippet imap-account "Define a generic IMAP account" !b
+###############################################################################
+[Account ${1:account name}]
+localrepository = local-$1
+remoterepository = remote-$1
+status_backend = sqlite
+autorefresh = 5
+quick = 10
+
+[Repository local-$1]
+type = Maildir
+localfolders = ~/Mail/$1
+
+[Repository remote-$1]
+type = IMAP
+remotehost = ${2:server hostname}
+remoteuser = ${3:username}
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+realdelete = no
+keepalive = 60
+holdconnectionopen = yes
+postsynchook = notmuch new
+
+endsnippet

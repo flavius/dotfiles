@@ -61,7 +61,6 @@
     scriptencoding utf-8
     set termencoding=utf-8
     set encoding=utf-8
-    set autochdir
     set shell=/bin/zsh
     " Directories {
         let s:localscriptsdir = expand($HOME . '/.vim')
@@ -73,7 +72,7 @@
         set undodir=$HOME/.vim/tmp/undo/
         " store undo files, undo edits after deleting a buffer
         set undofile
-        set viminfo='50,n$HOME/.vim/tmp/viminfo
+        set viminfo='50,!,n$HOME/.vim/tmp/viminfo
     " }
     " For a more responsive TrapMovementKeys (see below) - learn proper vim
     " Also for Bundle vim-showmarks
@@ -90,7 +89,6 @@
         if filereadable($HOME . '/.vim/bundles.vim')
             source expand($HOME . '/.vim/bundles.vim')
         endif
-        filetype plugin indent on
         call SourceVimDirectory('vimrc/bundles-post')
     endif
 " }}}
@@ -109,7 +107,6 @@
     call SourceVimDirectory('vimrc/visuals-pre')
     set visualbell
     set title
-    syntax on
     set relativenumber
     set modeline
     set showmode
@@ -138,8 +135,8 @@
     set shortmess+=afilmnrxoOtT
     set viewoptions=folds,options,cursor,unix,slash
     " Coloring {
-        colors elflord
-        highlight Folded term=standout ctermfg=0 ctermbg=7 guifg=Black guibg=ivory3
+        " colorscheme elflord
+        " highlight Folded term=standout ctermfg=0 ctermbg=7 guifg=Black guibg=ivory3
         highlight WhitespaceEOL ctermbg=Red guibg=Red
         match WhitespaceEOL /\s\+$/
     " }
@@ -284,4 +281,6 @@
         augroup END
     " }
 " }}}
+    syntax on
+    filetype plugin indent on
 " vim:set foldmarker={{{,}}} foldlevel=0 foldmethod=marker:

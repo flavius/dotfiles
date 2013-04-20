@@ -1,0 +1,27 @@
+macro index O "<shell-escape>offlineimap -q -o -u blinkenlights<enter>"           "run offlineimap to sync all mail"
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+macro index     .i      "l((~N|~O|~F)!~D)|(~d<1w!~Q)\n"
+macro index     .n      "l~N\n"
+macro index     .o      "l(~N|~O)\n"
+macro index     .a      "l~A\n"
+macro index     .t      "l~d<1d\n"
+macro index     .y      "l~d<2d ~d>1d\n"
+macro index     .u      "l~(~U)\n"
+
+macro index \Cv \
+"<enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<enter> \
+<enter-command> set crypt_verify_sig=yes<enter> \
+<display-message><enter-command> set crypt_verify_sig=\$my_crypt_verify_sig<enter>" \
+ 'Verify PGP signature and open the message'
+
+macro pager \Cv \
+"<exit><enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<enter> \
+<enter-command> set crypt_verify_sig=yes<enter> \
+<display-message><enter-command> set crypt_verify_sig=\$my_crypt_verify_sig<enter>" \
+ 'Verify PGP signature'

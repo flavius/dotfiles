@@ -1,0 +1,18 @@
+snippet machine "A machine entry with credentials" !b
+machine ${1:hostname}
+    login ${2:username}
+    password ${3:password}
+
+endsnippet
+snippet gmail-machine "Google services access" !b
+machine google.com
+    login ${1:username}@gmail.com
+    password ${2:password}
+machine imap.gmail.com
+    login $1@gmail.com
+    password $2
+machine smtp.gmail.com
+    login $1@gmail.com
+    password $2
+
+endsnippet

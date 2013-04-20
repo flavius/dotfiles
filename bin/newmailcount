@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+notmuch new &> /dev/null
+
+cnt=`notmuch count --output=threads is:unread`
+
+if [ $cnt -gt 0 ]; then
+    echo "☞ $cnt"
+fi
+

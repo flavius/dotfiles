@@ -1,0 +1,18 @@
+snippet def "Define notmuch configuration" !b
+[database]
+    path=`echo $HOME`/Mail
+[user]
+    name=${1:First Last}
+    primary_email=${2:email@host.tld}
+    #other_email=${3:email2;email3}
+[new]
+    tags=unread;inbox;
+    ignore=
+[search]
+    exclude_tags=deleted;spam;
+[maildir]
+    synchronize_flags=true
+[addressbook]
+    path=~/.cache/notmuch/abook.db
+    backend=sqlite3
+endsnippet
