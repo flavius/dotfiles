@@ -123,6 +123,7 @@
         endif
     endif
     set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«
+    set fillchars+=vert:\│
     set showbreak=↪
     set ttyfast
     set lazyredraw
@@ -132,6 +133,7 @@
     set formatoptions=qrn1
     set colorcolumn=80
     set splitright splitbelow
+    set laststatus=2
     set shortmess+=afilmnrxoOtT
     set viewoptions=folds,options,cursor,unix,slash
     " Coloring {
