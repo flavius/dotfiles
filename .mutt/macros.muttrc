@@ -6,6 +6,8 @@ bind index R        group-reply
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
+bind index \Cu next-unread-mailbox
+
 macro index     .i      "l((~N|~O|~F)!~D)|(~d<1w!~Q)\n"
 macro index     .n      "l~N\n"
 macro index     .o      "l(~N|~O)\n"
