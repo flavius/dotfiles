@@ -10,3 +10,14 @@ set wildignore+=*/Mail/*,*.vim/tmp/*,*.cache/*,*.dbus/*
 set wildignore+=*/.shutter/*,*/.subversion/*,*/.weechat/logs/*
 set wildignore+=*/.mozilla/*,*/projects/*
 set wildignore+=*/.local/share/fonts/*
+let g:startify_bookmarks = [
+    \ '~/.vimrc',
+    \ '~/.vim/vimrc/maps-post/vimmanaging.vim',
+    \ '~/.vim/vimrc/maps-post/bundlespecific.vim',
+    \ '~/.vim/vimrc/visuals-pre/bundlespecific.vim',
+    \ '~/.vim/vimrc/bundles-post/mybundles.vim',
+    \ '~/.vim/vimrc/maps-pre/vimanaging.vim',
+    \ '~/.vim/vimrc/editing-pre/dotfiles_filetypes.vim',
+    \ '~/.vim/vimrc/automatizations-pre/bundlespecific.vim',
+    \ '~/.vim/vimrc/editing-post/bundlespecific.vim'
+    \ ]

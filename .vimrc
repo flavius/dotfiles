@@ -73,6 +73,7 @@
         " store undo files, undo edits after deleting a buffer
         set undofile
         set viminfo='50,!,n$HOME/.vim/tmp/viminfo
+        set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,winpos,resize
     " }
     " For a more responsive TrapMovementKeys (see below) - learn proper vim
     " Also for Bundle vim-showmarks
