@@ -2,7 +2,7 @@ This dotfiles setup configures the following tools:
 
 * `zsh` as a shell
 * `git` for revision control
-* `vim` as an editor
+* `vim` as an editor (needs python2 support)
 * `X` for display
 * `awesomeWM` as the window manager
 * `tmux` as the terminal multiplexer
