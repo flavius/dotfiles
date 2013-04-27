@@ -1,23 +1,25 @@
 #!/bin/zsh
 
-for f in $HOME/.X/initrc/autoload/*; do
-    if [ -f "$f" ]; then
+files=( $HOME/.X/initrc/autoload/*(N) )
+if (( $#files )); then
+    for f in $files; do
         source "${f}"
-    fi
-done
+    done
+fi
 
-for modmap in $HOME/.X/modmap/*; do
-    if [ -f "$modmap" ]; then
+files=( $HOME/.X/modmap/autoload/*(N) )
+if (( $#files )); then
+    for modmap in $files; do
         xmodmap "${modmap}"
-    fi
-done
+    done
+fi
 
-for res in $HOME/.X/resources/autoload/*; do
-    if [ -f "$res" ]; then
+files=( $HOME/.X/resources/autoload/*(N) )
+if (( $#files )); then
+    for res in $files; do
         xrdb -merge "${res}"
-        echo "MERGE: $res"
-    fi
-done
+    done
+fi
 
 #xset b off &
 #/usr/bin/xscreensaver -no-splash &
@@ -29,19 +31,12 @@ done
 
 #. ~/.screenlayout/top_down.sh
 
-for f in $HOME/.X/pre-wm/*; do
-    if [ -f "$f" ]; then
+files=( $HOME/.X/pre-wm/autoload/*(N) )
+if (( $#files )); then
+    for f in $files; do
         source "${f}"
-    fi
-done
-
-echo "-----[ starting WM ]----------------------------------------------------"
+    done
+fi
 
 source $HOME/.X/wm
 
-for f in $HOME/.X/post-wm/*; do
-    if [ -f "$f" ]; then
-        source "${f}"
-    fi
-done
-echo "-----[ .xinitrc done ]--------------------------------------------------"
