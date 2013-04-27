@@ -12,6 +12,8 @@ This dotfiles setup configures the following tools:
   with helper functionalities allowing you to quickly set up new accounts
   * todo: and remove them
   * also available: tmux integration (pager showing number of new e-mails)
+* `xorg-xmodmap` for modifying keymaps
+* `xclip` to copy inside tmux
 
 Make sure you have these programs installed. Other programs may also be
 required, in which case I've forgot to mention them. If this occures to you,
